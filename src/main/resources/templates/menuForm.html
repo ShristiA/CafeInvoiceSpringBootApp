@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${menu}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Food Name: <input type="text" th:field="*{name}">
+    Description:<input type="text" th:field="*{description}">
+    Price : $ <input type="text" th:field="*{price}">
+    Image:<input type="text" th:field="*{image}">
+    Quantity:<input type="text" th:field="*{quantity}">
+
+    <button type="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>

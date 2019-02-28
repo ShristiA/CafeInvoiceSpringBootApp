@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Food Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+
+
+    </tr>
+        <tr th:each="menu: ${menus}">
+        <td th:text="${menu.name}"></td>
+        <td th:text="${menu.description}"></td>
+        <td th:text="${menu.price}"></td>
+        <td th:src="${menu.image}"></td>
+            <td th:text="${menu.quantity}"></td>
+            <td th:text="${menu.totalcost}"></td>
+
+    </tr>
+
+    <a href="/displayTotal">Get the sum</a>
+    <a href="/">Add another item</a>
+</table>
+</body>
+</html>
