@@ -16,32 +16,18 @@ import java.util.ArrayList;
         private int quantity;
         private Double totalcost;
 
-        @OneToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "totalCost_id" )
-        private  TotalCost totalCost;
-
-    public void setTotalcost(Double totalcost) {
-        this.totalcost = totalcost;
-    }
-
-    public TotalCost getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(TotalCost totalCost) {
-        this.totalCost = totalCost;
-    }
 
     public Menu() {
         }
 
-        public Menu(String name, String description, Double price, String image, int quantity, Double totalcost) {
+        public Menu(String name, String description, Double price, String image, int quantity, Double totalcost, Double total) {
             this.name = name;
             this.description = description;
             this.price = price;
             this.image = image;
             this.quantity = quantity;
             this.totalcost=totalcost;
+
         }
 
         public Long getId() {
@@ -100,6 +86,8 @@ import java.util.ArrayList;
             totalcost= price*quantity;
             this.totalcost = totalcost;
         }
+
+
 
     }
 

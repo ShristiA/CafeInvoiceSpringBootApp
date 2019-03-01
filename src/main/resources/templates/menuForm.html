@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:replace="base:: headstuffs"></th:block>
+
 </head>
 <body>
+<!--<section class="container mt-5 p-5 br bg-dark">-->
+    <section class = "container bg-light p-5 mt-5 " >
 <form action="#" th:action="@{/process}" th:object="${menu}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    Food Name: <input type="text" th:field="*{name}">
-    Description:<input type="text" th:field="*{description}">
-    Price : $ <input type="text" th:field="*{price}">
-    Image:<input type="text" th:field="*{image}">
-    Quantity:<input type="text" th:field="*{quantity}">
 
-    <button type="submit" value="Submit">Submit</button>
+    <input type="hidden" th:field="*{id}" />
+
+       <div class="form-group">
+       <label for="food"></label>
+   Food Name: <input type="text" class="form-control" id="food" th:field="*{name}">
+       </div>
+       <div class="form-group">
+           <label for="descri"></label>
+           Description:<input type="text" id="descri" class="form-control" th:field="*{description}">
+       </div>
+       <div class="form-group">
+           <label for="pric"></label>
+    Price : <input type="text" id="pric" class="form-control"  th:field="*{price}">
+       </div>
+    <!--Image:<input type="text" th:field="*{image}">-->
+       <div class="form-group">
+           <label for="img"></label>
+           Quantity:<input type="text" id="img" class="form-control" th:field="*{quantity}">
+       </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
 </form>
+    </section>
+</section>
 </body>
 </html>

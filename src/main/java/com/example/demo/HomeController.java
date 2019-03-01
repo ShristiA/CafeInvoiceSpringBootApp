@@ -17,8 +17,7 @@ public class HomeController {
     @Autowired
     MenuRepository menuRepository;
 
-    @Autowired
-            TotalCostRepository totalCostRepository;
+
 
     double sum = 0.0;
 
@@ -29,7 +28,7 @@ public class HomeController {
 
     }
     @PostMapping("/process")
-    public String storingMenuItems(@ModelAttribute Menu menu, Model model){
+    public String storingMenuItems(@ModelAttribute Menu menu, Model model, Model model1){
         menu.setTotalcost(menu.getPrice(), menu.getQuantity());
         menuRepository.save(menu);
         model.addAttribute("menus", menuRepository.findAll());
@@ -39,27 +38,14 @@ public class HomeController {
         for(Double totalSum : totalCostSum) {
 
             sum += totalSum;
+            model1.addAttribute("sum" , sum);
         }
+
         System.out.println(sum);
         return "orderList";
     }
 
 
-    @GetMapping("/displayTotal")
-    public String printOutTotalCost(@ModelAttribute Menu menu,TotalCost totalCost, Model model){
-//        ArrayList<Double>totalCostSum= new ArrayList<>();
-//        totalCostSum.add(menu.getTotalcost());
-//
-//        for(Double totalSum : totalCostSum) {
-//
-//            sum += totalSum;
-//        }
-        totalCost.setSum();
-        totalCostRepository.save(totalCost);
-        model.addAttribute("totalCost", totalCostRepository.findAll());
-        //System.out.println(sum);
 
-        return "totalCostList";
-    }
 
 }

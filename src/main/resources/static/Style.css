@@ -1,0 +1,45 @@
+form{
+    font-family: "Comic Sans MS";
+    font-color: black;
+}
+
+body{
+    background-image: url("https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ .container {
+     position: relative;
+     width: 50%;
+ }
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+table{
+    background: aliceblue;
+    /*float-wrap: wrap;*/
+   position: center;
+    top: 50%;
+    left: 50%;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*-webkit-transform: translate(-50%, -50%);*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*transform: translate(-50%, -50%);*/
+    /*white-space: nowrap;*/
+}
+
+p{
+    text-align: right;
+}

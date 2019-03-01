@@ -1,33 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:replace="base::headstuffs"></th:block>
 </head>
 <body>
-<table>
+<section class="container bg-light mt-5 p-2">
+<table class="table">
+    <!--<section class="container light-bg"></section>-->
+    <thead>
     <tr>
-        <th>Food Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Image</th>
-        <th>Quantity</th>
-        <th>Cost</th>
-
+        <th scope="col">Food Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <!--<th scope="col">Image</th>-->
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
 
     </tr>
+    </thead>
+    <tbody>
+
+    <th scope="row"></th>
         <tr th:each="menu: ${menus}">
         <td th:text="${menu.name}"></td>
         <td th:text="${menu.description}"></td>
         <td th:text="${menu.price}"></td>
-        <td th:src="${menu.image}"></td>
+        <!--<td th:src="${menu.image}"></td>-->
             <td th:text="${menu.quantity}"></td>
             <td th:text="${menu.totalcost}"></td>
 
-    </tr>
+<!--</sectio>-->
 
-    <a href="/displayTotal">Get the sum</a>
+        </tr>
+
+    </tbody>
+
+
     <a href="/">Add another item</a>
+
+    <p><strong>Your Total Cost is:</strong> <span th:text="${sum}"></span></p>
+<!--</section>-->
 </table>
+</section>
+
 </body>
 </html>
