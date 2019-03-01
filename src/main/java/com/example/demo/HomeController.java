@@ -29,15 +29,20 @@ public class HomeController {
     }
     @PostMapping("/process")
     public String storingMenuItems(@ModelAttribute Menu menu, Model model, Model model1){
+        //calculating the cost for each item.
         menu.setTotalcost(menu.getPrice(), menu.getQuantity());
+        // saving it in the database.
         menuRepository.save(menu);
         model.addAttribute("menus", menuRepository.findAll());
+        
+        // iterating all the cost available in the table to calculate subtotal.
         ArrayList<Double>totalCostSum= new ArrayList<>();
         totalCostSum.add(menu.getTotalcost());
 
         for(Double totalSum : totalCostSum) {
 
             sum += totalSum;
+            //saving subtotal in a variable to display it in the html page
             model1.addAttribute("sum" , sum);
         }
 
